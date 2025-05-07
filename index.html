@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gift Order</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .gift-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .gift-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 220px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .gift-card:hover {
+      transform: scale(1.05);
+    }
+
+    .gift-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .gift-price {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .order-btn {
+      background-color: #e91e63;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .order-btn:hover {
+      background-color: #d81b60;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .confirmation-message {
+      font-size: 22px;
+      margin-top: 20px;
+      color: #4caf50;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      background-color: #607d8b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #455a64;
+    }
+
+    .contact-section {
+      background-color: #fce4ec;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-top: 2px solid #e91e63;
+    }
+
+    .contact-section h2 {
+      color: #e91e63;
+    }
+
+    .contact-section p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gift Selection Page -->
+  <div id="giftPage" class="container page active">
+    <h1><b>Unique Finds</b></h1>
+    <h2>Order Gifts for Special Occasions</h2>
+    <div class="gift-list">
+      <div class="gift-card">
+        <div class="gift-name">Rose Bouquet</div>
+        <div class="gift-price">₹699</div>
+        <button class="order-btn" onclick="confirmOrder('Rose Bouquet')">Order Now</button>
+      </div>
+      <div class="gift-card">
+        <div class="gift-name">Chocolate Box</div>
+        <div class="gift-price">₹499</div>
+        <button class="order-btn" onclick="confirmOrder('Chocolate Box')">Order Now</button>
+      </div>
+      <div class="gift-card">
+        <div class="gift-name">Teddy Bear</div>
+        <div class="gift-price">₹899</div>
+        <button class="order-btn" onclick="confirmOrder('Teddy Bear')">Order Now</button>
+      </div>
+      <div class="gift-card">
+        <div class="gift-name">Greeting Card</div>
+        <div class="gift-price">₹199</div>
+        <button class="order-btn" onclick="confirmOrder('Greeting Card')">Order Now</button>
+      </div>
+      <div class="gift-card">
+        <div class="gift-name">Gift Hamper</div>
+        <div class="gift-price">₹1299</div>
+        <button class="order-btn" onclick="confirmOrder('Gift Hamper')">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Page -->
+  <div id="confirmationPage" class="container page">
+    <h1>Order Confirmation</h1>
+    <div class="confirmation-message" id="confirmationText"></div>
+    <button class="back-btn" onclick="goBack()">Back to Gifts</button>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Email: support@uniquefinds.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Address: Ganesh Compound,Mangalore</p>
+  </div>
+
+  <script>
+    function confirmOrder(itemName) {
+      document.getElementById("giftPage").classList.remove("active");
+      document.getElementById("confirmationPage").classList.add("active");
+      document.getElementById("confirmationText").innerText = `Your order for "${itemName}" has been confirmed!`;
+    }
+
+    function goBack() {
+      document.getElementById("confirmationPage").classList.remove("active");
+      document.getElementById("giftPage").classList.add("active");
+    }
+  </script>
+</body>
+</html>
